@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-API_URL = 'http://127.0.0.1:8000/api/'
+const API_URL = 'http://127.0.0.1:8000/api/'
 
-export const fetchProductList = ()=>{
+export const fetchProductList =async ()=>{
 
-    const response = axios.get(`${API_URL}product/`)
+    const response = await axios.get(`${API_URL}product/`)
     console.log(response)
     return response.data
 }

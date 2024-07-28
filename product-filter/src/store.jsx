@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const productStore = create((set) => ({
+export const productStore = create((set) => ({
     products: [],
     categories: [],
 
