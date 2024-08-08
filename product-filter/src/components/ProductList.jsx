@@ -5,10 +5,11 @@ import { productStore } from "../store";
 const ProductList =()=>{
    
 //    const {products ,setProducts} = productStore()
-const { products, setProducts } = productStore((state) => ({
-    products: state.products,
-    setProducts: state.setProducts,
-  }));
+// const { products, setProducts } = productStore((state) => ({
+//     products: state.products,
+//     setProducts: state.setProducts,
+//   }));
+  const { products, setProducts } = productStore();
    useEffect(() => {
             fetchProductList().then(setProducts);
         }, [setProducts]);
@@ -22,13 +23,13 @@ const { products, setProducts } = productStore((state) => ({
             {products.map(product =>(
                 <div key={product.id} className="col-4">
                     <div  className="card ">
-                    <img className="..." class="card-img-top" alt="..."/>
-                    <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">{product.description}</p>
-                    <a href="#" className="btn btn-primary">Add To Cart</a>
-                    </div>
-                </div>
+                        <img src={product.image} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <h5 className="card-title">{product.name}</h5>
+                            <p className="card-text">{product.description}</p>
+                            <a href="#" className="btn btn-primary">Add To Cart</a>
+                        </div>
+                     </div>
                 </div>
                 ))}
             
