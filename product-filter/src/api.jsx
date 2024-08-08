@@ -15,7 +15,6 @@ export const fetchProductList =async (filters)=>{
     }
 //http://127.0.0.1:8000/api/product/?min_price=&max_price=&categories=1%2C2
     const response = await axios.get(`${API_URL}/product/`,{params})
-    console.log(response)
     return response.data
 }
 

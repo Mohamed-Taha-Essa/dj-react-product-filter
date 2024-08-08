@@ -4,12 +4,13 @@ import { productStore } from "../store";
 
 const ProductList =()=>{
    
-//    const {products ,setProducts} = productStore()
-const { products, setProducts,filters } = productStore((state) => ({
+  //make re-render for only products, setProducts,filters in productstor change
+  const { products, setProducts,filters } = productStore((state) => ({
     products: state.products,
     setProducts: state.setProducts,
     filters :state.filters
   }));
+//make re-render for every part in productstor change
 //   const { products, setProducts ,filters} = productStore();
    useEffect(() => {
             fetchProductList(filters).then(setProducts);

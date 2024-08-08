@@ -8,7 +8,7 @@ const ProductFilter =()=>{
 
    const { categories, setCategories,filters } = productStore((state) => ({
     categories: state.categories,
-    setProducts: state.setProducts,
+    setCategories: state.setCategories,
     filters :state.filters
   }));
 
@@ -24,9 +24,9 @@ const ProductFilter =()=>{
    }
 
    const handlePrice = (e)=>{
-    const {value ,checked}  = e.target
-    console.log(value ,checked)
-}
+    const {name ,checked}  = e.target
+    console.log(name ,checked)
+    }
 
 
 
@@ -37,14 +37,15 @@ const ProductFilter =()=>{
        <div className="mt-5">
             <h2>Category</h2>
             {categories.map((cat,index) => (
-                    <div>
-                        <div key={cat.id}   className="form-check">
+                    <div key={cat.id} >
+                        <div   className="form-check">
                             <input type="checkbox" 
                                 className="form-check-input"
+                                id={cat.id}
                                 value={cat.id}
                                 onChange={handleCategory}
                             />
-                            <label htmlFor="" className="form-check-label">{cat.name}</label>
+                            <label htmlFor={cat.id} className="form-check-label">{cat.name}</label>
                         </div>  
                     </div>
                 ))}
