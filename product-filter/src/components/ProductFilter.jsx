@@ -30,8 +30,13 @@ const ProductFilter =()=>{
     }
 
    const handlePrice = (e)=>{
-    const {name ,checked}  = e.target
-    console.log(name ,checked)
+    const {name ,value}  = e.target
+    const newPrice = [...filters.priceRange]
+    if (name=='min') newPrice[0]=value
+    if(name =='max') newPrice[1] = value
+
+    setFilters({priceRange:newPrice})
+
     }
 
 
@@ -60,23 +65,20 @@ const ProductFilter =()=>{
             <h2>Price</h2>
             <div className="row">
                 <div className="col">
-                    <input type="number" name="" 
+                    <input type="number" name="min" 
                         className="form-control" 
                         placeholder="min-price"
                         value={filters.priceRange[0]}
                         onChange={handlePrice}
-
-                    
                     />
                 </div>
 
                 <div className="col">
-                    <input type="number" name="" 
+                    <input type="number" name="max" 
                         className="form-control" 
                         placeholder="max-price"
                         value={filters.priceRange[1]}
                         onChange={handlePrice}
-
                     />
                 </div>            
             </div>

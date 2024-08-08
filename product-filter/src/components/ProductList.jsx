@@ -28,6 +28,7 @@ const ProductList =()=>{
                         <img src={product.image} className="card-img-top"/>
                         <div className="card-body">
                             <h5 className="card-title">{product.name}</h5>
+                            <p>{product.price}</p>
                             <p className="card-text">{product.description}</p>
                             <a href="#" className="btn btn-primary">Add To Cart</a>
                         </div>
