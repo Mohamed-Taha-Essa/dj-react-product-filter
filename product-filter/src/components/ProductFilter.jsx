@@ -6,22 +6,28 @@ const ProductFilter =()=>{
    
 //    const {categories ,setCategories , filters} =productStore();
 
-   const { categories, setCategories,filters } = productStore((state) => ({
+   const { categories, setCategories,filters,setFilters } = productStore((state) => ({
     categories: state.categories,
     setCategories: state.setCategories,
-    filters :state.filters
+    filters :state.filters,
+    setFilters:state.setFilters
+
   }));
 
 
    useEffect(()=>{
         fetchCategories().then(setCategories);
-   },[])
+   },[setCategories])
 
    const handleCategory = (e)=>{
         const {value ,checked}  = e.target
-        console.log(value ,checked)
+        const newCategory = checked 
+        ? [...filters.categories ,parseInt(value)]
+        : filters.categories.filter(id => id != parseInt(value))
+        
+        setFilters({categories:newCategory})
 
-   }
+    }
 
    const handlePrice = (e)=>{
     const {name ,checked}  = e.target

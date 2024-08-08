@@ -14,7 +14,7 @@ const ProductList =()=>{
 //   const { products, setProducts ,filters} = productStore();
    useEffect(() => {
             fetchProductList(filters).then(setProducts);
-        }, [setProducts]);
+        }, [setProducts ,filters]);
 
    
     return ( 

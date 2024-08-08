@@ -10,5 +10,5 @@ export const productStore = create((set) => ({
 
     setProducts: (products) => set({ products }),
     setCategories: (categories) => set({ categories }),
-    setFilters :(filters) => set({filters})
+    setFilters :(filters) => set((state)=>({filters:{...state.filters ,...filters}}))
 }));
