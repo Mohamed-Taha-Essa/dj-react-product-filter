@@ -9,9 +9,9 @@ const ProductList =()=>{
 //     products: state.products,
 //     setProducts: state.setProducts,
 //   }));
-  const { products, setProducts } = productStore();
+  const { products, setProducts ,filters} = productStore();
    useEffect(() => {
-            fetchProductList().then(setProducts);
+            fetchProductList(filters).then(setProducts);
         }, [setProducts]);
 
    

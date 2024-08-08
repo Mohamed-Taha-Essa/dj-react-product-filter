@@ -2,8 +2,8 @@ from django_filters import rest_framework as filters
 from .models import Product
 
 class ProductFilter(filters.FilterSet):
-    min_price = filters.NumberFilter(field_name="price", lookup_expr='gte')
-    max_price = filters.NumberFilter(field_name="price", lookup_expr='lte')
+    price_min = filters.NumberFilter(field_name="price", lookup_expr='gte')
+    price_max = filters.NumberFilter(field_name="price", lookup_expr='lte')
     categories = filters.BaseInFilter(field_name="category__id", lookup_expr='in')
 
     #categories = filters.CharFilter(method='filter_by_categories')
@@ -11,7 +11,7 @@ class ProductFilter(filters.FilterSet):
 
     class Meta:
         model = Product
-        fields = ['min_price', 'max_price', 'categories']
+        fields = ['price_min', 'price_max', 'categories']
 
     #apply multiple categories
     # def filter_by_categories(self, queryset, name, value):
