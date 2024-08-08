@@ -5,9 +5,10 @@ export const productStore = create((set) => ({
     categories: [],
     filters:{
         categories:[],
-        pricRange :[0,1000]
+        priceRange :[0,1000]
     },
 
     setProducts: (products) => set({ products }),
     setCategories: (categories) => set({ categories }),
+    setFilters :(filters) => set({filters})
 }));
