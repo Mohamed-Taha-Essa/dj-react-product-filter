@@ -1,7 +1,7 @@
 
 # DJ-React-Product-Filter
 
-A full-stack product filtering application built with Django (backend) and React.js (frontend). This application demonstrates how to implement advanced filtering and searching functionality in a modern web application, making it easy for users to navigate and find products that match their criteria.
+A full-stack product filtering application built with Django (backend) and React.js (frontend). This application demonstrates how to implement filtering by multible categories, price range ,searching, and pagination functionality in a modern web application, making it easy for users to navigate and find products that match their criteria.
 
 ## Table of Contents
 
@@ -17,14 +17,17 @@ A full-stack product filtering application built with Django (backend) and React
 
 ## Overview
 
-This project combines the power of Django as a robust backend framework and React.js as a dynamic frontend library. It is designed to handle product data efficiently and provide an intuitive user interface for filtering and searching through products based on various criteria.
+This project combines the power of Django as a robust backend framework and React.js as a dynamic frontend library. It is designed to handle product data efficiently and provide an intuitive user interface for filtering, searching, and paginating through products based on various criteria.
 
 ## Features
 
-- **Advanced Filtering:** Filter products by categories, price range.
-- **Search Functionality:** Full-text search to quickly find products (soon).
+- **Advanced Filtering:** Filter products by categories, price range, and more.
+- **Search Functionality:** Full-text search to quickly find products.
+- **Pagination:** Simple pagination to navigate through products, with customizable items per page.
 - **Responsive Design:** The application is fully responsive and works seamlessly across devices.
-- **REST API:** The backend exposes a well-structured REST API for handling product data.
+- **State Management:** Zustand is used for state management in the React application.
+- **Data Fetching:** Axios is used to interact with the backend API for fetching and manipulating product data.
+- **REST API:** The backend exposes a well-structured REST API for handling product data, including pagination and custom filtering.
 - **Modular Code Structure:** The project is organized to allow easy scalability and maintenance.
 
 ## Tech Stack
@@ -35,7 +38,9 @@ This project combines the power of Django as a robust backend framework and Reac
 
 ### Frontend
 - **React.js**: A JavaScript library for building user interfaces.
-- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
+- **Bootstrap**: A popular CSS framework for building responsive and mobile-first websites.
+- **Zustand**: A small, fast, and scalable state management solution for React.
+- **Axios**: A promise-based HTTP client for making requests to the backend API.
 
 ### Database
 - **SQLite**: A lightweight database used for development and testing (can be replaced with PostgreSQL/MySQL for production).
@@ -44,7 +49,7 @@ This project combines the power of Django as a robust backend framework and Reac
 
 ### Prerequisites
 
-- Python 3.11
+- Python 3.x
 - Node.js & npm
 - Git
 
@@ -94,7 +99,6 @@ This project combines the power of Django as a robust backend framework and Reac
    npm start
    ```
 
-
 ## Usage
 
 1. **Access the application:**
@@ -102,7 +106,9 @@ This project combines the power of Django as a robust backend framework and Reac
    - Frontend UI: `http://localhost:3000/`
 
 2. **Explore the filtering functionality:**
-   - Use category and filters on the frontend to find products that meet your criteria.
+   - Use the search bar and filters on the frontend to find products that meet your criteria.
+   - Use the pagination controls to navigate through the product listings.
+   - Adjust the number of products displayed per page using the custom filter in the backend.
 
 ## Project Structure
 
@@ -126,7 +132,10 @@ dj-react-product-filter/
 
 ### Products API
 
-- **GET /api/products/**: Retrieve a list of products with filtering and searching capabilities.
+- **GET /api/products/**: Retrieve a list of products with filtering, searching, and pagination capabilities.
+  - **Parameters:**
+    - `page`: Specifies the page number (default: 1).
+    - `page_size`: Specifies the number of products per page (default: 10, customizable via backend).
 - **GET /api/products/:id/**: Retrieve details of a specific product.
 - **POST /api/products/**: Add a new product (requires authentication).
 - **PUT /api/products/:id/**: Update a product (requires authentication).
